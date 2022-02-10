@@ -1,10 +1,28 @@
 import { Button, Container, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const AddProducts = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [newToys, setNewToys] = useState([]);
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => setNewToys(data);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/toys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newToys),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Product added successfully");
+          reset();
+        }
+      });
+  }, [newToys, reset]);
   return (
     <Container>
       <h1>This is add products</h1>
@@ -61,8 +79,7 @@ const AddProducts = () => {
           variant="outlined"
           fullWidth
           width="100%"
-          type="number"
-          {...register("price", { required: true })}
+          {...register("image", { required: true })}
           sx={{ my: 3 }}
         />
         <Button
