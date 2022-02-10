@@ -1,13 +1,20 @@
-import { Button, Container, TextField } from "@mui/material";
+import { Alert, Button, Container, TextField } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import useFirebase from "../../../hooks/useFirebase";
 
 const SignUp = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { signUpUserWithEmailAndPassword, authError, user } = useFirebase();
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    signUpUserWithEmailAndPassword(data.email, data.password, data.name);
+    reset();
+  };
   return (
     <Container>
       <h1>This is sign up</h1>
+      {authError && <Alert severity="error">{authError}</Alert>}
+      {user?.email && <Alert severity="success">Registration Successful</Alert>}
       <form onSubmit={handleSubmit(onSubmit)} className="addProductsForm">
         <TextField
           id="name"
@@ -26,7 +33,7 @@ const SignUp = () => {
           variant="outlined"
           fullWidth
           width="100%"
-          {...register("name", { required: true })}
+          {...register("email", { required: true })}
           sx={{ my: 3 }}
         />
         <TextField
@@ -36,7 +43,7 @@ const SignUp = () => {
           variant="outlined"
           fullWidth
           width="100%"
-          {...register("description", { required: true })}
+          {...register("password", { required: true })}
           sx={{ my: 3 }}
         />
 
