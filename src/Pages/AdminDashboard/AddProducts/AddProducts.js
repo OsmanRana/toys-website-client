@@ -8,7 +8,7 @@ const AddProducts = () => {
   return (
     <Container>
       <h1>This is add products</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="addProductsForm">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           id="product-name"
           label="Product Name"
@@ -16,7 +16,6 @@ const AddProducts = () => {
           fullWidth
           width="100%"
           {...register("name", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <TextField
@@ -26,7 +25,6 @@ const AddProducts = () => {
           fullWidth
           width="100%"
           {...register("description", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <TextField
@@ -36,7 +34,6 @@ const AddProducts = () => {
           fullWidth
           width="100%"
           {...register("ageBracket", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <TextField
@@ -46,7 +43,6 @@ const AddProducts = () => {
           fullWidth
           width="100%"
           {...register("brand", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <TextField
@@ -57,7 +53,6 @@ const AddProducts = () => {
           width="100%"
           type="number"
           {...register("price", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <TextField
@@ -68,7 +63,6 @@ const AddProducts = () => {
           width="100%"
           type="number"
           {...register("price", { required: true })}
-          className="addProductsFormInput"
           sx={{ my: 3 }}
         />
         <Button

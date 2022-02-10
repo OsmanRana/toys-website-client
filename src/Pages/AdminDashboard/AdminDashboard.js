@@ -1,4 +1,6 @@
 import React from "react";
+import SignIn from "../Authentication/SignIn/SignIn";
+import SignUp from "../Authentication/SignUP/SignUp";
 import AddProducts from "./AddProducts/AddProducts";
 import AllOrders from "./AllOrders/AllOrders";
 import AllProducts from "./AllProducts/AllProducts";
@@ -14,6 +16,8 @@ const AdminDashboard = () => {
       <MakeAdmin></MakeAdmin>
       <AllUsers></AllUsers>
       <AllOrders></AllOrders>
+      <SignIn></SignIn>
+      <SignUp></SignUp>
     </div>
   );
 };
