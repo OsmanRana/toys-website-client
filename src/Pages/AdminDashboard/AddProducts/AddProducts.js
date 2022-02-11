@@ -1,28 +1,27 @@
 import { Button, Container, TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const AddProducts = () => {
-  const [newToys, setNewToys] = useState([]);
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data) => setNewToys(data);
-
-  useEffect(() => {
+  const onSubmit = (data) => {
     fetch("http://localhost:5000/addToys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newToys),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Product added successfully");
+          alert("Toy added");
           reset();
         }
+        console.log(data);
       });
-  }, [newToys, reset]);
+  };
+
   return (
     <Container>
       <h1>This is add products</h1>

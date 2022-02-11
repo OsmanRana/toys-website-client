@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -15,12 +13,21 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
+import AllProducts from "./AllProducts/AllProducts";
+import AllOrders from "./AllOrders/AllOrders";
+import AddProducts from "./AddProducts/AddProducts";
+import AllUsers from "./AllUsers/AllUsers";
+import MakeAdmin from "./MakeAdmin/MakeAdmin";
+import UpdateProduct from "./UpdateProduct/UpdateProduct";
 
 const drawerWidth = 240;
 
 const AdminDashboard = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -31,36 +38,66 @@ const AdminDashboard = (props) => {
       <Toolbar />
       <Divider />
       <List>
-        <ListItem>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText>All Products</ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText>All Orders</ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText>All Products</ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText>All Users</ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText>Make Admin</ListItemText>
-        </ListItem>
+        <NavLink
+          to={`${url}/allProducts`}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ color: "blue", fontWeight: "bold" }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>All Products</ListItemText>
+          </ListItem>
+        </NavLink>
+        <NavLink
+          to={`${url}/allOrders`}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ color: "blue", fontWeight: "bold" }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>All Orders</ListItemText>
+          </ListItem>
+        </NavLink>
+        <NavLink
+          to={`${url}/addProducts`}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ color: "blue", fontWeight: "bold" }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>Add Products</ListItemText>
+          </ListItem>
+        </NavLink>
+        <NavLink
+          to={`${url}/AllUsers`}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ color: "blue", fontWeight: "bold" }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>All Users</ListItemText>
+          </ListItem>
+        </NavLink>
+        <NavLink
+          to={`${url}/makeAdmin`}
+          style={{ textDecoration: "none" }}
+          activeStyle={{ color: "blue", fontWeight: "bold" }}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>Make Admin</ListItemText>
+          </ListItem>
+        </NavLink>
       </List>
     </div>
   );
@@ -139,6 +176,23 @@ const AdminDashboard = (props) => {
         }}
       >
         <Toolbar />
+        <Switch>
+          <Route exact path={`${path}/allProducts`}>
+            <AllProducts></AllProducts>
+          </Route>
+          <Route path={`${path}/allOrders`}>
+            <AllOrders></AllOrders>
+          </Route>
+          <Route path={`${path}/addProducts`}>
+            <AddProducts></AddProducts>
+          </Route>
+          <Route path={`${path}/allUsers`}>
+            <AllUsers></AllUsers>
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+          </Route>
+        </Switch>
       </Box>
     </Box>
   );

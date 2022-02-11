@@ -7,10 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button, Container } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const [toys, setToys] = useState([]);
-  console.log(toys);
   useEffect(() => {
     fetch("http://localhost:5000/toys")
       .then((res) => res.json())
@@ -33,10 +33,11 @@ const AllProducts = () => {
         });
     }
   };
+
   return (
     <Container>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Product Name</TableCell>
@@ -62,7 +63,12 @@ const AllProducts = () => {
                   </Button>
                 </TableCell>
                 <TableCell align="center">
-                  <Button variant="outlined">Update</Button>
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/allProducts/${toy._id}`}
+                  >
+                    <Button variant="outlined">Update</Button>
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}
