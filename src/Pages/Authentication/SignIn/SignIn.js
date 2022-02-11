@@ -4,16 +4,13 @@ import { useForm } from "react-hook-form";
 import useFirebase from "../../../hooks/useFirebase";
 
 const SignIn = () => {
-  const { logInWithEmailAndPassword, authError, logOut } = useFirebase;
+  const { userSignIn, authError } = useFirebase();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    logInWithEmailAndPassword(data.email, data.password);
+    userSignIn(data.email, data.password);
     reset();
-    console.log(data);
   };
-  const handleOnClick = () => {
-    logOut();
-  };
+
   return (
     <Container>
       <h1>This is sign in</h1>
@@ -49,14 +46,6 @@ const SignIn = () => {
           Submit
         </Button>
       </form>
-      <Button
-        onClick={handleOnClick}
-        variant="contained"
-        fullWidth
-        sx={{ maxWidth: 180 }}
-      >
-        Log Out
-      </Button>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Button, Container } from "@mui/material";
 import { useForm } from "react-hook-form";
 
@@ -16,9 +16,10 @@ const formStyle = {
 const UpdateProduct = () => {
   const [toy, setToy] = useState([]);
   const { productId } = useParams();
+  const history = useHistory();
 
   const { name, description, ageBracket, brand, image, price } = toy;
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   useEffect(() => {
     fetch(`http://localhost:5000/toys/${productId}`)
       .then((res) => res.json())
@@ -35,7 +36,10 @@ const UpdateProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("Update successful");
+          history.push("/adminDashboard/allProducts");
+        }
       });
   };
   return (

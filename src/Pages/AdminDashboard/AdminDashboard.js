@@ -19,11 +19,13 @@ import AllOrders from "./AllOrders/AllOrders";
 import AddProducts from "./AddProducts/AddProducts";
 import AllUsers from "./AllUsers/AllUsers";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
-import UpdateProduct from "./UpdateProduct/UpdateProduct";
+import { Button } from "@mui/material";
+import useFirebase from "../../hooks/useFirebase";
 
 const drawerWidth = 240;
 
 const AdminDashboard = (props) => {
+  const { logOut, user } = useFirebase();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -98,6 +100,11 @@ const AdminDashboard = (props) => {
             <ListItemText>Make Admin</ListItemText>
           </ListItem>
         </NavLink>
+        <ListItem>
+          <Button variant="contained" onClick={() => logOut()}>
+            SignOut
+          </Button>
+        </ListItem>
       </List>
     </div>
   );
@@ -125,7 +132,7 @@ const AdminDashboard = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Admin Dashboard
+            Admin Dashboard {user?.displayName}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -2,6 +2,8 @@ import "./App.css";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UpdateProduct from "./Pages/AdminDashboard/UpdateProduct/UpdateProduct";
+import SignIn from "./Pages/Authentication/SignIn/SignIn";
+import SignUp from "./Pages/Authentication/SignUP/SignUp";
 
 function App() {
   return (
@@ -13,6 +15,12 @@ function App() {
           </Route>
           <Route exact path="/allProducts/:productId">
             <UpdateProduct></UpdateProduct>
+          </Route>
+          <Route path="/signin">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/signup">
+            <SignUp></SignUp>
           </Route>
         </Switch>
       </Router>

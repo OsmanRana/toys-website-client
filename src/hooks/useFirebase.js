@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import firebaseInitialization from "../Pages/Authentication/Firebase/firebaseInit";
@@ -21,16 +22,25 @@ const useFirebase = () => {
         setAuthError("");
         const newUser = { email, displayName: name };
         setUser(newUser);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((error) => {
+            setAuthError(error.message);
+          });
+        saveUser(email, name);
       })
       .catch((error) => {
         setAuthError(error.message);
       });
   };
 
-  const logInWithEmailAndPassword = (email, password) => {
+  const userSignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setUser(userCredential.user);
+        const user = userCredential.user;
+        setUser(user);
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -51,17 +61,29 @@ const useFirebase = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       } else {
         setUser({});
       }
     });
   }, [auth]);
+
+  const saveUser = (email, displayName) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {});
+  };
   return {
     signUpUserWithEmailAndPassword,
     authError,
     user,
-    logInWithEmailAndPassword,
+    userSignIn,
     logOut,
   };
 };
