@@ -8,7 +8,7 @@ const AddProducts = () => {
   const onSubmit = (data) => setNewToys(data);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys", {
+    fetch("http://localhost:5000/addToys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
