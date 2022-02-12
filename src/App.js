@@ -4,12 +4,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UpdateProduct from "./Pages/AdminDashboard/UpdateProduct/UpdateProduct";
 import SignIn from "./Pages/Authentication/SignIn/SignIn";
 import SignUp from "./Pages/Authentication/SignUP/SignUp";
+import HomePage from "./Pages/Home/HomePage/HomePage";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
+          <Route exact path="/">
+            {" "}
+            <HomePage></HomePage>
+          </Route>
           <Route path="/adminDashboard">
             <AdminDashboard></AdminDashboard>
           </Route>
