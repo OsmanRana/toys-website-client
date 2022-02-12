@@ -45,12 +45,14 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box>
-            <Box
-              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, mt: 5 }}
-            >
-              {" "}
-              <img src="/logo.png" alt="logo" width="25%" />
-            </Box>
+            <Link to="/">
+              <Box
+                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, mt: 5 }}
+              >
+                {" "}
+                <img src="/logo.png" alt="logo" width="25%" />
+              </Box>
+            </Link>
             <Box
               sx={{
                 flexGrow: 1,
@@ -58,7 +60,7 @@ const Navbar = () => {
                 justifyContent: "left",
               }}
             >
-              <Link to="/" style={linkStyle}>
+              <Link to="/allToys" style={linkStyle}>
                 Toys
               </Link>
               <Link to="/" style={linkStyle}>
@@ -99,7 +101,9 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Toys</Typography>
+                <Link to="/allToys">
+                  <Typography textAlign="center">Toys</Typography>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">By Age</Typography>
@@ -109,10 +113,12 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            {" "}
-            <img src="/logo.png" alt="logo" width="50%" />
-          </Box>
+          <Link to="/">
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              {" "}
+              <img src="/logo.png" alt="logo" width="50%" />
+            </Box>
+          </Link>
 
           <Box sx={{ flexGrow: 0 }}>
             {user?.email ? (
@@ -120,7 +126,7 @@ const Navbar = () => {
                 <Link to="/" style={linkStyle} onClick={() => logOut()}>
                   Logout
                 </Link>
-                <Link to="/signup" style={linkStyle}>
+                <Link to="/" style={linkStyle}>
                   Cart
                 </Link>
                 <Link to="/" style={linkStyle}>

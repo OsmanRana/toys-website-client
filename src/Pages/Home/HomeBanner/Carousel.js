@@ -3,7 +3,6 @@ import { Navigation, Pagination, A11y } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,14 +14,11 @@ const Carousel = () => {
     <>
       <Box sx={{ display: { xs: "none", md: "flex" } }}>
         <Swiper
-          // install Swiper modules
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={4}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide>
             <img
@@ -77,14 +73,11 @@ const Carousel = () => {
       </Box>
       <Box sx={{ display: { xs: "flex", md: "none" } }}>
         <Swiper
-          // install Swiper modules
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide>
             <img

@@ -5,6 +5,8 @@ import UpdateProduct from "./Pages/AdminDashboard/UpdateProduct/UpdateProduct";
 import SignIn from "./Pages/Authentication/SignIn/SignIn";
 import SignUp from "./Pages/Authentication/SignUP/SignUp";
 import HomePage from "./Pages/Home/HomePage/HomePage";
+import AllToys from "./Pages/AllToys/AllToys";
+import ToyDetails from "./Pages/AllToys/ToyDetails/ToyDetails";
 
 function App() {
   return (
@@ -14,6 +16,12 @@ function App() {
           <Route exact path="/">
             {" "}
             <HomePage></HomePage>
+          </Route>
+          <Route exact path="/allToys">
+            <AllToys></AllToys>
+          </Route>
+          <Route path="/allToys/:toyId">
+            <ToyDetails></ToyDetails>
           </Route>
           <Route path="/adminDashboard">
             <AdminDashboard></AdminDashboard>
