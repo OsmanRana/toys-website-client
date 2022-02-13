@@ -15,7 +15,7 @@ const ages = [
       "https://www.hamleys.com/media/catalog/product/4/5/454066_main_ioz0fxwdrotd4lxy.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=300&width=240&canvas=240:300",
   },
   {
-    ageBracket: "5-7 Years",
+    ageBracket: "5-6 Years",
     image:
       "https://www.hamleys.com/media/catalog/product/3/7/371476_main_n7p8mbvkr6genauv.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=300&width=240&canvas=240:300",
   },

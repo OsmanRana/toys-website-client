@@ -2,6 +2,7 @@ import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CustomButtom from "../../../components/CustomButton/CustomButtom";
 import Navbar from "../../../components/Shared/Navigation/Navbar";
 import ToyAccordian from "./ToyAccordian";
 
@@ -57,7 +58,8 @@ const ToyDetails = () => {
             >
               $ {price}.00
             </Typography>
-            <Button variant="contained" sx={{my: 8}}>Add to cart</Button>
+
+            <CustomButtom text="Add to Cart" />
             <ToyAccordian toy={toy}></ToyAccordian>
           </Box>
         </Grid>

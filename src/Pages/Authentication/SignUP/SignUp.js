@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useFirebase from "../../../hooks/useFirebase";
 import AuthenticationNavbar from "../../../components/Shared/Navigation/AuthenticationNavbar";
 import { Link } from "react-router-dom";
+import CustomButtom from "../../../components/CustomButton/CustomButtom";
 
 const SignUp = () => {
   const { signUpUserWithEmailAndPassword, authError, user } = useFirebase();
@@ -58,15 +59,7 @@ const SignUp = () => {
             {...register("password", { required: true })}
             sx={{ my: 3 }}
           />
-
-          <Button
-            type="submit"
-            variant="contained"
-            fullWidth
-            sx={{ maxWidth: 180, mb: 5 }}
-          >
-            Submit
-          </Button>
+          <CustomButtom text="Submit" />
         </form>
         <Typography variant="caption">
           Already registered? <Link to="/signin">Sign In </Link> here

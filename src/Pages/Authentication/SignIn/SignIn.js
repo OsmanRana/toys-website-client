@@ -2,6 +2,7 @@ import { Alert, Button, Container, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import CustomButtom from "../../../components/CustomButton/CustomButtom";
 import AuthenticationNavbar from "../../../components/Shared/Navigation/AuthenticationNavbar";
 import useFirebase from "../../../hooks/useFirebase";
 
@@ -47,14 +48,7 @@ const SignIn = () => {
             sx={{ my: 3 }}
           />
 
-          <Button
-            type="submit"
-            variant="contained"
-            fullWidth
-            sx={{ maxWidth: 180, mb: 5 }}
-          >
-            Submit
-          </Button>
+          <CustomButtom text="Submit" />
         </form>
         <Typography variant="caption">
           Not registered? <Link to="/signup">Sign Up </Link> here
