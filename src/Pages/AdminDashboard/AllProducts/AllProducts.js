@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const AllProducts = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://whispering-basin-27213.herokuapp.com/toys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -20,7 +20,7 @@ const AllProducts = () => {
   const handleDelete = (id) => {
     const proced = window.confirm("Confirm Delete");
     if (proced) {
-      fetch(`http://localhost:5000/toys/${id}`, {
+      fetch(`https://whispering-basin-27213.herokuapp.com/toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

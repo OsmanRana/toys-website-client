@@ -21,19 +21,22 @@ const UpdateProduct = () => {
   const { name, description, ageBracket, brand, image, price } = toy;
   const { register, handleSubmit } = useForm();
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${productId}`)
+    fetch(`https://whispering-basin-27213.herokuapp.com/toys/${productId}`)
       .then((res) => res.json())
       .then((data) => setToy(data));
   }, [productId]);
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/updateToys/${productId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://whispering-basin-27213.herokuapp.com/updateToys/${productId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

@@ -10,7 +10,9 @@ const ShopByAgeToys = () => {
   const [ageToys, setAgeToys] = useState([]);
   const { ageBracket } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/shopByAge/${ageBracket}`)
+    fetch(
+      `https://whispering-basin-27213.herokuapp.com/shopByAge/${ageBracket}`
+    )
       .then((res) => res.json())
       .then((data) => setAgeToys(data));
   }, [ageBracket]);

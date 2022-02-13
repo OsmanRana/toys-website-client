@@ -1,4 +1,4 @@
-import {  Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -13,13 +13,13 @@ const ToyDetails = () => {
   const { _id, image, price, name } = toy;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${toyId}`)
+    fetch(`https://whispering-basin-27213.herokuapp.com/toys/${toyId}`)
       .then((res) => res.json())
       .then((data) => setToy(data));
   }, [toyId]);
-  const handleOnClick =(id) =>{
-    console.log(id)
-  }
+  const handleOnClick = (id) => {
+    console.log(id);
+  };
   return (
     <>
       <Navbar></Navbar>
@@ -62,7 +62,10 @@ const ToyDetails = () => {
               $ {price}.00
             </Typography>
 
-            <CustomButtom text="Add to Cart" onClick={()=>handleOnClick(_id)} />
+            <CustomButtom
+              text="Add to Cart"
+              onClick={() => handleOnClick(_id)}
+            />
             <ToyAccordian toy={toy}></ToyAccordian>
           </Box>
         </Grid>

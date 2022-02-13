@@ -9,7 +9,7 @@ import SectionHeader from "../../components/Header/SectionHeader";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://whispering-basin-27213.herokuapp.com/toys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);

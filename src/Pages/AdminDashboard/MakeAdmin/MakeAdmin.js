@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   const { user } = useFirebase();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/users/${user?.email}`, {
+    fetch(`https://whispering-basin-27213.herokuapp.com/users/${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
