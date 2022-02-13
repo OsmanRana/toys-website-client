@@ -4,6 +4,7 @@ import Navbar from "../../components/Shared/Navigation/Navbar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Toy from "./Toy/Toy";
+import SectionHeader from "../../components/Header/SectionHeader";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -15,8 +16,9 @@ const AllToys = () => {
   return (
     <>
       <Navbar></Navbar>
+      <SectionHeader text="All Toys"></SectionHeader>
       <Container>
-        <Box sx={{ flexGrow: 1, my: 16,}}>
+        <Box sx={{ flexGrow: 1, my: 16 }}>
           <Grid container spacing={2}>
             {toys?.map((toy) => (
               <Toy key={toy._id} toy={toy}></Toy>

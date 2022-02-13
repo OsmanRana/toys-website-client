@@ -48,7 +48,7 @@ const SignIn = () => {
             sx={{ my: 3 }}
           />
 
-          <CustomButtom text="Submit" />
+          <CustomButtom text="Submit" type="Submit"/>
         </form>
         <Typography variant="caption">
           Not registered? <Link to="/signup">Sign Up </Link> here

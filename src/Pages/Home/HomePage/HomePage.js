@@ -5,11 +5,11 @@ import ShopByAge from "../ShopByAge/ShopByAge";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <Carousel></Carousel>
       <ShopByAge></ShopByAge>
-    </div>
+    </>
   );
 };
 

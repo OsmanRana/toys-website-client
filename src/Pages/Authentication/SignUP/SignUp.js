@@ -59,7 +59,7 @@ const SignUp = () => {
             {...register("password", { required: true })}
             sx={{ my: 3 }}
           />
-          <CustomButtom text="Submit" />
+          <CustomButtom text="Submit" type="Submit" />
         </form>
         <Typography variant="caption">
           Already registered? <Link to="/signin">Sign In </Link> here

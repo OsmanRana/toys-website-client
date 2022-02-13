@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../../../components/Shared/Navigation/Navbar";
 import ShopBayAgeCollections from "./ShopBayAgeCollections";
 import Box from "@mui/material/Box";
+import SectionHeader from "../../../../components/Header/SectionHeader";
 
 const ShopByAgeToys = () => {
   const [ageToys, setAgeToys] = useState([]);
@@ -17,6 +18,7 @@ const ShopByAgeToys = () => {
     <>
       <Navbar></Navbar>
       <Container>
+        <SectionHeader text={ageBracket}></SectionHeader>
         <Box sx={{ flexGrow: 1, my: 16 }}>
           <Grid container spacing={2}>
             {ageToys?.map((ageToy) => (

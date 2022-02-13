@@ -1,26 +1,15 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import ShopByAgeCard from "./ShopByAgeCard";
 import ages from "../../../mock/shopByAge";
+import SectionHeader from "../../../components/Header/SectionHeader";
 
 const ShopByAge = () => {
   return (
     <>
-      <Typography
-        gutterBottom
-        variant="h1"
-        component="div"
-        sx={{
-          fontWeight: "bold",
-          color: "white",
-          backgroundColor: "#b00000",
-          mt: 16,
-          py: 4
-        }}
-      >
-        Shop By Age
-      </Typography>
+      <SectionHeader text="Shop By Age"></SectionHeader>
+
       <Box sx={{ flexGrow: 1, mb: 16, backgroundColor: "#fee63e" }}>
         <Container>
           <Grid container sx={{ my: 4 }}>

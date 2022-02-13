@@ -11,12 +11,14 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const CustomButtom = ({ text }) => {
+const CustomButtom = ({ text, type, onClick }) => {
   return (
     <ColorButton
       variant="contained"
       sx={{ my: 8, maxWidth: 180, py: 2 }}
       fullWidth
+      type={type}
+      onClick={onClick}
     >
       {text}
     </ColorButton>
