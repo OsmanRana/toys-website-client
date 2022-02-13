@@ -7,6 +7,8 @@ import SignUp from "./Pages/Authentication/SignUP/SignUp";
 import HomePage from "./Pages/Home/HomePage/HomePage";
 import AllToys from "./Pages/AllToys/AllToys";
 import ToyDetails from "./Pages/AllToys/ToyDetails/ToyDetails";
+import ShopByAge from "./Pages/Home/ShopByAge/ShopByAge";
+import ShopByAgeToys from "./Pages/Home/ShopByAge/ShopByAgeToys/ShopByAgeToys";
 
 function App() {
   return (
@@ -22,6 +24,12 @@ function App() {
           </Route>
           <Route path="/allToys/:toyId">
             <ToyDetails></ToyDetails>
+          </Route>
+          <Route exact path='/shopByAge'>
+            <ShopByAge></ShopByAge>
+          </Route>
+          <Route exact path='/shopByAge/:ageBracket'>
+            <ShopByAgeToys></ShopByAgeToys>
           </Route>
           <Route path="/adminDashboard">
             <AdminDashboard></AdminDashboard>

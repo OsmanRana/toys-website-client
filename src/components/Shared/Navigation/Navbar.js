@@ -63,7 +63,7 @@ const Navbar = () => {
               <Link to="/allToys" style={linkStyle}>
                 Toys
               </Link>
-              <Link to="/" style={linkStyle}>
+              <Link to="/shopByAge" style={linkStyle}>
                 By Age
               </Link>
               <Link to="/" style={linkStyle}>
@@ -106,7 +106,9 @@ const Navbar = () => {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">By Age</Typography>
+                <Link to="/shopByAge">
+                  <Typography textAlign="center">By Age</Typography>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Brand</Typography>

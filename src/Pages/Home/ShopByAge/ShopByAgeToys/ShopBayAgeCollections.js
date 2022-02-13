@@ -6,9 +6,8 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Toy = ({ toy }) => {
-  const { _id, image, name, price } = toy;
-
+const ShopBayAgeCollections = ({ ageToy }) => {
+  const { _id, image, name, price } = ageToy;
   return (
     <Grid
       item
@@ -55,4 +54,4 @@ const Toy = ({ toy }) => {
   );
 };
 
-export default Toy;
+export default ShopBayAgeCollections;

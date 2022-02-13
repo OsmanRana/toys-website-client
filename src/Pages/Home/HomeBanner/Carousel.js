@@ -12,7 +12,7 @@ import { Box } from "@mui/system";
 const Carousel = () => {
   return (
     <>
-      <Box sx={{ display: { xs: "none", md: "flex" } }}>
+      <Box sx={{ display: { xs: "none", md: "flex" }, mt: 16 }}>
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={4}
