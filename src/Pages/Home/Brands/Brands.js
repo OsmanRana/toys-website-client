@@ -8,13 +8,14 @@ import "swiper/css/scrollbar";
 import { Box as Container } from "@mui/system";
 import brandNames from "../../../mock/BrandNames";
 import SectionHeader from "../../../components/Header/SectionHeader";
+import { Link } from "react-router-dom";
 const imageStyle = {
   borderRadius: "50%",
   maxWidth: "200px",
   height: "200px",
   backgroundColor: "black",
   cursor: "pointer",
-  boxShadow: "1px 1px 2px gray"
+  boxShadow: "1px 1px 2px gray",
 };
 
 const Brands = () => {
@@ -37,7 +38,13 @@ const Brands = () => {
         >
           {brandNames.map((brandName) => (
             <SwiperSlide key={brandName.id}>
-              <img src={brandName.image} alt="Brand Name" style={imageStyle} />
+              <Link to={`/shopByBrand/${brandName.name}`}>
+                <img
+                  src={brandName.image}
+                  alt="Brand Name"
+                  style={imageStyle}
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

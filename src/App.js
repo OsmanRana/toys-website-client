@@ -9,6 +9,8 @@ import AllToys from "./Pages/AllToys/AllToys";
 import ToyDetails from "./Pages/AllToys/ToyDetails/ToyDetails";
 import ShopByAgeToys from "./Pages/Home/ShopByAge/ShopByAgeToys/ShopByAgeToys";
 import ShopByAgeWithNavbar from "./Pages/ShopByAgeWithNavbar/ShopByAgeWithNavbar";
+import ShopByBrandWithNavbar from "./Pages/Home/Brands/ShopBayBrands/ShopByBrandWithNavbar";
+import ShopByBrands from "./Pages/Home/Brands/ShopBayBrands/ShopByBrands";
 
 function App() {
   return (
@@ -30,6 +32,12 @@ function App() {
           </Route>
           <Route exact path="/shopByAge/:ageBracket">
             <ShopByAgeToys></ShopByAgeToys>
+          </Route>
+          <Route exact path="/shopByBrand">
+            <ShopByBrandWithNavbar></ShopByBrandWithNavbar>
+          </Route>
+          <Route exact path="/shopByBrand/:brandName">
+            <ShopByBrands></ShopByBrands>
           </Route>
           <Route path="/adminDashboard">
             <AdminDashboard></AdminDashboard>
