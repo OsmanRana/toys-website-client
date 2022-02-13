@@ -6,14 +6,15 @@ const SectionHeader = ({ text }) => {
     <>
       <Typography
         gutterBottom
-        variant="h1"
+        variant="h3"
         component="div"
         sx={{
-          fontWeight: { xs: "none", md: "bold" },
+          fontSize: {md: 96},
           color: "white",
           backgroundColor: "#b00000",
           mt: { xs: 4, md: 16 },
           py: 4,
+          fontFamily: "Titan One",
         }}
       >
         {text}

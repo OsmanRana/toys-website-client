@@ -17,7 +17,7 @@ const ShopByAgeCard = ({ age }) => {
       sx={{ display: { xs: "flex", justifyContent: "center", my: 4 } }}
     >
       <Link to={`/shopByAge/${ageBracket}`} style={{ textDecoration: "none" }}>
-        <Card sx={{ maxWidth: 450, my: 8 }}>
+        <Card sx={{ maxWidth: 450, my: 8, borderRadius: 8 }}>
           <CardActionArea>
             <CardMedia component="img" image={image} alt="Toy" width="100%" />
             <CardContent>

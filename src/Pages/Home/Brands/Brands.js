@@ -12,8 +12,9 @@ const imageStyle = {
   borderRadius: "50%",
   maxWidth: "200px",
   height: "200px",
-  backgroundColor: "#fee63e",
+  backgroundColor: "black",
   cursor: "pointer",
+  boxShadow: "1px 1px 2px gray"
 };
 
 const Brands = () => {
@@ -28,8 +29,8 @@ const Brands = () => {
       >
         <Swiper
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={50}
-          slidesPerView={2}
+          spaceBetween={5}
+          slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
@@ -42,7 +43,6 @@ const Brands = () => {
         </Swiper>
       </Container>
       <Container sx={{ display: { xs: "flex", md: "none" } }}>
-        <SectionHeader text="Shop By Brand"></SectionHeader>
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={1}
