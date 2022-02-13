@@ -16,7 +16,7 @@ const AllToys = () => {
   return (
     <>
       <Navbar></Navbar>
-      <SectionHeader text="All Toys"></SectionHeader>
+      <SectionHeader text={`All Toys (${toys.length})`}></SectionHeader>
       <Container>
         <Box sx={{ flexGrow: 1, my: 16 }}>
           <Grid container spacing={2}>

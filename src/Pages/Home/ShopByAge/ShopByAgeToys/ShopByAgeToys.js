@@ -18,7 +18,9 @@ const ShopByAgeToys = () => {
     <>
       <Navbar></Navbar>
       <Container>
-        <SectionHeader text={ageBracket}></SectionHeader>
+        <SectionHeader
+          text={`${ageBracket} (${ageToys.length})`}
+        ></SectionHeader>
         <Box sx={{ flexGrow: 1, my: 16 }}>
           <Grid container spacing={2}>
             {ageToys?.map((ageToy) => (
