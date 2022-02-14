@@ -21,7 +21,7 @@ const SignUp = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          mt: { xs: 4, md: 16 },
+          my: { xs: 4, md: 16 },
         }}
       >
         {authError && <Alert severity="error">{authError}</Alert>}

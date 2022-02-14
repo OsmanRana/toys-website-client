@@ -12,6 +12,7 @@ import ShopByAgeWithNavbar from "./Pages/ShopByAgeWithNavbar/ShopByAgeWithNavbar
 import ShopByBrandWithNavbar from "./Pages/Home/Brands/ShopBayBrands/ShopByBrandWithNavbar";
 import ShopByBrands from "./Pages/Home/Brands/ShopBayBrands/ShopByBrands";
 import ShopByPrice from "./Pages/Home/ShopByPrice/ShopByPrice";
+import Footer from "./components/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             <SignUp></SignUp>
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

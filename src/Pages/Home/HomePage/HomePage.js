@@ -1,6 +1,5 @@
 import { Container } from "@mui/material";
 import React from "react";
-import Footer from "../../../components/Shared/Footer/Footer";
 import Navbar from "../../../components/Shared/Navigation/Navbar";
 import Brands from "../Brands/Brands";
 import Carousel from "../HomeBanner/Carousel";
@@ -17,7 +16,6 @@ const HomePage = () => {
         <Brands></Brands>
       </Container>
       <Media></Media>
-      <Footer/>
     </>
   );
 };

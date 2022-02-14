@@ -1,6 +1,7 @@
 import { Alert, Container, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CustomButtom from "../../../components/CustomButton/CustomButtom";
 import AuthenticationNavbar from "../../../components/Shared/Navigation/AuthenticationNavbar";
@@ -9,9 +10,11 @@ import useFirebase from "../../../hooks/useFirebase";
 const SignIn = () => {
   const { userSignIn, authError } = useFirebase();
   const { register, handleSubmit, reset } = useForm();
+  const { history } = useHistory();
   const onSubmit = (data) => {
     userSignIn(data.email, data.password);
     reset();
+    history.push("/");
   };
 
   return (
@@ -22,7 +25,7 @@ const SignIn = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          mt: { xs: 4, md: 16 },
+          my: { xs: 4, md: 16 },
         }}
       >
         {authError && <Alert>{authError}</Alert>}
@@ -48,7 +51,7 @@ const SignIn = () => {
             sx={{ my: 3 }}
           />
 
-          <CustomButtom text="Submit" type="Submit"/>
+          <CustomButtom text="Submit" type="Submit" />
         </form>
         <Typography variant="caption">
           Not registered? <Link to="/signup">Sign Up </Link> here
