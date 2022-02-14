@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../../../components/Shared/Navigation/Navbar";
 import Brands from "../Brands/Brands";
 import Carousel from "../HomeBanner/Carousel";
+import Media from "../Media/Media";
 import ShopByAge from "../ShopByAge/ShopByAge";
 
 const HomePage = () => {
@@ -14,6 +15,7 @@ const HomePage = () => {
       <Container>
         <Brands></Brands>
       </Container>
+      <Media></Media>
     </>
   );
 };

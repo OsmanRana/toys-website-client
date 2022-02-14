@@ -20,6 +20,11 @@ const linkStyle = {
   color: "white",
   fontWeight: "bold",
 };
+const mobileLinkStyle = {
+  textDecoration: "none",
+  color: "#b00000",
+  fontWeight: "bold",
+};
 
 const Navbar = () => {
   const { user, logOut } = useFirebase();
@@ -101,28 +106,32 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/allToys">
+                <Link to="/">
+                  <Box
+                    sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+                  >
+                    {" "}
+                    <img src="/logo.png" alt="logo" width="50%" />
+                  </Box>
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/allToys" style={mobileLinkStyle}>
                   <Typography textAlign="center">Toys</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/shopByAge">
+                <Link to="/shopByAge" style={mobileLinkStyle}>
                   <Typography textAlign="center">By Age</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to="/shopByBrand">
+                <Link to="/shopByBrand" style={mobileLinkStyle}>
                   <Typography textAlign="center">Brand</Typography>
                 </Link>
               </MenuItem>
             </Menu>
           </Box>
-          <Link to="/">
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              {" "}
-              <img src="/logo.png" alt="logo" width="50%" />
-            </Box>
-          </Link>
 
           <Box sx={{ flexGrow: 0 }}>
             {user?.email ? (

@@ -11,6 +11,7 @@ import ShopByAgeToys from "./Pages/Home/ShopByAge/ShopByAgeToys/ShopByAgeToys";
 import ShopByAgeWithNavbar from "./Pages/ShopByAgeWithNavbar/ShopByAgeWithNavbar";
 import ShopByBrandWithNavbar from "./Pages/Home/Brands/ShopBayBrands/ShopByBrandWithNavbar";
 import ShopByBrands from "./Pages/Home/Brands/ShopBayBrands/ShopByBrands";
+import ShopByPrice from "./Pages/Home/ShopByPrice/ShopByPrice";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/shopByBrand/:brandName">
             <ShopByBrands></ShopByBrands>
+          </Route>
+          <Route exact path="/shopByPrice">
+            <ShopByPrice></ShopByPrice>
           </Route>
           <Route path="/adminDashboard">
             <AdminDashboard></AdminDashboard>
