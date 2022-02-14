@@ -11,8 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
 import CustomButtom from "../../CustomButton/CustomButtom";
+import useAuth from "../../../hooks/useAuth";
 
 const linkStyle = {
   margin: "22px ",
@@ -27,7 +27,7 @@ const mobileLinkStyle = {
 };
 
 const Navbar = () => {
-  const { user, logOut } = useFirebase();
+  const { user, logOut } = useAuth();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 

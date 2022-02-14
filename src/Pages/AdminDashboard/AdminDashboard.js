@@ -19,8 +19,8 @@ import AllOrders from "./AllOrders/AllOrders";
 import AddProducts from "./AddProducts/AddProducts";
 import AllUsers from "./AllUsers/AllUsers";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
-import useFirebase from "../../hooks/useFirebase";
 import CustomButtom from "../../components/CustomButton/CustomButtom";
+import useAuth from "../../hooks/useAuth";
 
 const drawerWidth = 240;
 
@@ -30,7 +30,7 @@ const linkStyle = {
   fontWeight: "bold",
 };
 const AdminDashboard = (props) => {
-  const { logOut, user } = useFirebase();
+  const { logOut, user } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 

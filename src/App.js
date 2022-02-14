@@ -13,52 +13,55 @@ import ShopByBrandWithNavbar from "./Pages/Home/Brands/ShopBayBrands/ShopByBrand
 import ShopByBrands from "./Pages/Home/Brands/ShopBayBrands/ShopByBrands";
 import ShopByPrice from "./Pages/Home/ShopByPrice/ShopByPrice";
 import Footer from "./components/Shared/Footer/Footer";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            {" "}
-            <HomePage></HomePage>
-          </Route>
-          <Route exact path="/allToys">
-            <AllToys></AllToys>
-          </Route>
-          <Route path="/allToys/:toyId">
-            <ToyDetails></ToyDetails>
-          </Route>
-          <Route exact path="/shopByAge">
-            <ShopByAgeWithNavbar></ShopByAgeWithNavbar>
-          </Route>
-          <Route exact path="/shopByAge/:ageBracket">
-            <ShopByAgeToys></ShopByAgeToys>
-          </Route>
-          <Route exact path="/shopByBrand">
-            <ShopByBrandWithNavbar></ShopByBrandWithNavbar>
-          </Route>
-          <Route exact path="/shopByBrand/:brandName">
-            <ShopByBrands></ShopByBrands>
-          </Route>
-          <Route exact path="/shopByPrice">
-            <ShopByPrice></ShopByPrice>
-          </Route>
-          <Route path="/adminDashboard">
-            <AdminDashboard></AdminDashboard>
-          </Route>
-          <Route exact path="/allProducts/:productId">
-            <UpdateProduct></UpdateProduct>
-          </Route>
-          <Route path="/signin">
-            <SignIn></SignIn>
-          </Route>
-          <Route path="/signup">
-            <SignUp></SignUp>
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              {" "}
+              <HomePage></HomePage>
+            </Route>
+            <Route exact path="/allToys">
+              <AllToys></AllToys>
+            </Route>
+            <Route path="/allToys/:toyId">
+              <ToyDetails></ToyDetails>
+            </Route>
+            <Route exact path="/shopByAge">
+              <ShopByAgeWithNavbar></ShopByAgeWithNavbar>
+            </Route>
+            <Route exact path="/shopByAge/:ageBracket">
+              <ShopByAgeToys></ShopByAgeToys>
+            </Route>
+            <Route exact path="/shopByBrand">
+              <ShopByBrandWithNavbar></ShopByBrandWithNavbar>
+            </Route>
+            <Route exact path="/shopByBrand/:brandName">
+              <ShopByBrands></ShopByBrands>
+            </Route>
+            <Route exact path="/shopByPrice">
+              <ShopByPrice></ShopByPrice>
+            </Route>
+            <Route path="/adminDashboard">
+              <AdminDashboard></AdminDashboard>
+            </Route>
+            <Route exact path="/allProducts/:productId">
+              <UpdateProduct></UpdateProduct>
+            </Route>
+            <Route path="/signin">
+              <SignIn></SignIn>
+            </Route>
+            <Route path="/signup">
+              <SignUp></SignUp>
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

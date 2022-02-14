@@ -1,10 +1,10 @@
 import { Button, Container, TextField } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const MakeAdmin = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     fetch(`https://whispering-basin-27213.herokuapp.com/users/${user?.email}`, {

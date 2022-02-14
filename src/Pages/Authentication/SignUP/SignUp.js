@@ -1,13 +1,13 @@
-import { Alert, Button, Container, TextField, Typography } from "@mui/material";
+import { Alert, Container, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import useFirebase from "../../../hooks/useFirebase";
 import AuthenticationNavbar from "../../../components/Shared/Navigation/AuthenticationNavbar";
 import { Link } from "react-router-dom";
 import CustomButtom from "../../../components/CustomButton/CustomButtom";
+import useAuth from "../../../hooks/useAuth";
 
 const SignUp = () => {
-  const { signUpUserWithEmailAndPassword, authError, user } = useFirebase();
+  const { signUpUserWithEmailAndPassword, authError, user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     signUpUserWithEmailAndPassword(data.email, data.password, data.name);

@@ -6,10 +6,10 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CustomButtom from "../../../components/CustomButton/CustomButtom";
 import AuthenticationNavbar from "../../../components/Shared/Navigation/AuthenticationNavbar";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const SignIn = () => {
-  const { userSignIn, authError } = useFirebase();
+  const { userSignIn, authError } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const { history } = useHistory();
   const { location } = useLocation();
