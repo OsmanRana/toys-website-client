@@ -14,6 +14,7 @@ import ShopByBrands from "./Pages/Home/Brands/ShopBayBrands/ShopByBrands";
 import ShopByPrice from "./Pages/Home/ShopByPrice/ShopByPrice";
 import Footer from "./components/Shared/Footer/Footer";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -46,9 +47,9 @@ function App() {
             <Route exact path="/shopByPrice">
               <ShopByPrice></ShopByPrice>
             </Route>
-            <Route path="/adminDashboard">
+            <PrivateRoute path="/adminDashboard">
               <AdminDashboard></AdminDashboard>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/allProducts/:productId">
               <UpdateProduct></UpdateProduct>
             </Route>

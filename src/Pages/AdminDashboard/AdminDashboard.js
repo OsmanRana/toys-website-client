@@ -21,6 +21,12 @@ import AllUsers from "./AllUsers/AllUsers";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import CustomButtom from "../../components/CustomButton/CustomButtom";
 import useAuth from "../../hooks/useAuth";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
+import HomeIcon from "@mui/icons-material/Home";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const drawerWidth = 240;
 
@@ -52,7 +58,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText>Home</ListItemText>
           </ListItem>
@@ -64,7 +70,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <Inventory2Icon />
             </ListItemIcon>
             <ListItemText>All Products</ListItemText>
           </ListItem>
@@ -76,7 +82,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <ShoppingCartIcon />
             </ListItemIcon>
             <ListItemText>All Orders</ListItemText>
           </ListItem>
@@ -88,7 +94,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <AddShoppingCartIcon />
             </ListItemIcon>
             <ListItemText>Add Products</ListItemText>
           </ListItem>
@@ -100,7 +106,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <SupervisedUserCircleIcon />
             </ListItemIcon>
             <ListItemText>All Users</ListItemText>
           </ListItem>
@@ -112,7 +118,7 @@ const AdminDashboard = (props) => {
         >
           <ListItem>
             <ListItemIcon>
-              <MailIcon />
+              <AdminPanelSettingsIcon />
             </ListItemIcon>
             <ListItemText>Make Admin</ListItemText>
           </ListItem>
@@ -150,7 +156,6 @@ const AdminDashboard = (props) => {
           <Typography variant="h6" noWrap component="div">
             {user?.displayName}
           </Typography>
-          {/* <AuthenticationNavbar /> */}
         </Toolbar>
       </AppBar>
 
