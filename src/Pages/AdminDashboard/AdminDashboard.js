@@ -19,11 +19,16 @@ import AllOrders from "./AllOrders/AllOrders";
 import AddProducts from "./AddProducts/AddProducts";
 import AllUsers from "./AllUsers/AllUsers";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
-import { Button } from "@mui/material";
 import useFirebase from "../../hooks/useFirebase";
+import CustomButtom from "../../components/CustomButton/CustomButtom";
 
 const drawerWidth = 240;
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "#b00000",
+  fontWeight: "bold",
+};
 const AdminDashboard = (props) => {
   const { logOut, user } = useFirebase();
   const { window } = props;
@@ -41,9 +46,21 @@ const AdminDashboard = (props) => {
       <Divider />
       <List>
         <NavLink
-          to={`${url}/allProducts`}
+          to={`/`}
           style={{ textDecoration: "none" }}
-          activeStyle={{ color: "blue", fontWeight: "bold" }}
+          activeStyle={linkStyle}
+        >
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText>Home</ListItemText>
+          </ListItem>
+        </NavLink>
+        <NavLink
+          to={`${url}`}
+          style={{ textDecoration: "none" }}
+          activeStyle={linkStyle}
         >
           <ListItem>
             <ListItemIcon>
@@ -55,7 +72,7 @@ const AdminDashboard = (props) => {
         <NavLink
           to={`${url}/allOrders`}
           style={{ textDecoration: "none" }}
-          activeStyle={{ color: "blue", fontWeight: "bold" }}
+          activeStyle={linkStyle}
         >
           <ListItem>
             <ListItemIcon>
@@ -67,7 +84,7 @@ const AdminDashboard = (props) => {
         <NavLink
           to={`${url}/addProducts`}
           style={{ textDecoration: "none" }}
-          activeStyle={{ color: "blue", fontWeight: "bold" }}
+          activeStyle={linkStyle}
         >
           <ListItem>
             <ListItemIcon>
@@ -79,7 +96,7 @@ const AdminDashboard = (props) => {
         <NavLink
           to={`${url}/AllUsers`}
           style={{ textDecoration: "none" }}
-          activeStyle={{ color: "blue", fontWeight: "bold" }}
+          activeStyle={linkStyle}
         >
           <ListItem>
             <ListItemIcon>
@@ -91,7 +108,7 @@ const AdminDashboard = (props) => {
         <NavLink
           to={`${url}/makeAdmin`}
           style={{ textDecoration: "none" }}
-          activeStyle={{ color: "blue", fontWeight: "bold" }}
+          activeStyle={linkStyle}
         >
           <ListItem>
             <ListItemIcon>
@@ -101,9 +118,7 @@ const AdminDashboard = (props) => {
           </ListItem>
         </NavLink>
         <ListItem>
-          <Button variant="contained" onClick={() => logOut()}>
-            SignOut
-          </Button>
+          <CustomButtom text="SignOut" onClick={() => logOut()}></CustomButtom>
         </ListItem>
       </List>
     </div>
@@ -117,6 +132,7 @@ const AdminDashboard = (props) => {
       <AppBar
         position="fixed"
         sx={{
+          backgroundColor: "#b00000",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}
@@ -132,10 +148,12 @@ const AdminDashboard = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Admin Dashboard {user?.displayName}
+            {user?.displayName}
           </Typography>
+          {/* <AuthenticationNavbar /> */}
         </Toolbar>
       </AppBar>
+
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -184,7 +202,7 @@ const AdminDashboard = (props) => {
       >
         <Toolbar />
         <Switch>
-          <Route exact path={`${path}/allProducts`}>
+          <Route exact path={`${path}`}>
             <AllProducts></AllProducts>
           </Route>
           <Route path={`${path}/allOrders`}>

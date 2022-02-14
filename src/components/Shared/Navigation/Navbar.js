@@ -12,8 +12,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import useFirebase from "../../../hooks/useFirebase";
+import CustomButtom from "../../CustomButton/CustomButtom";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const linkStyle = {
   margin: "22px ",
   textDecoration: "none",
@@ -135,10 +135,7 @@ const Navbar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             {user?.email ? (
-              <Box>
-                <Link to="/" style={linkStyle} onClick={() => logOut()}>
-                  Logout
-                </Link>
+              <Box sx={{ display: "flex" }}>
                 <Link to="/" style={linkStyle}>
                   Cart
                 </Link>
@@ -169,11 +166,16 @@ const Navbar = () => {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Link style={{ mobileLinkStyle }} to="/adminDashboard">
+                      <Typography textAlign="center">
+                        Admin Dashboard
+                      </Typography>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <CustomButtom text="Logout" onClick={() => logOut()} />
+                  </MenuItem>
                 </Menu>
               </Box>
             ) : (

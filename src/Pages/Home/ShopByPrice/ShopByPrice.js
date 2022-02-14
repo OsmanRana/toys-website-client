@@ -6,7 +6,7 @@ import Navbar from "../../../components/Shared/Navigation/Navbar";
 const ShopByPrice = () => {
   const [priceToy, setPriceToy] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/price`)
+    fetch(`https://whispering-basin-27213.herokuapp.com/price`)
       .then((res) => res.json())
       .then((data) => setPriceToy(data));
   }, []);

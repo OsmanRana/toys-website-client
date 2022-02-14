@@ -36,10 +36,11 @@ const useFirebase = () => {
       });
   };
 
-  const userSignIn = (email, password) => {
+  const userSignIn = (email, password, history) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        history.push("/");
         setUser(user);
       })
       .catch((error) => {

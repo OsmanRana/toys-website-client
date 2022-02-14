@@ -1,6 +1,7 @@
 import { Alert, Container, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CustomButtom from "../../../components/CustomButton/CustomButtom";
@@ -11,8 +12,9 @@ const SignIn = () => {
   const { userSignIn, authError } = useFirebase();
   const { register, handleSubmit, reset } = useForm();
   const { history } = useHistory();
+  const { location } = useLocation();
   const onSubmit = (data) => {
-    userSignIn(data.email, data.password);
+    userSignIn(data.email, data.password, history, location);
     reset();
     history.push("/");
   };

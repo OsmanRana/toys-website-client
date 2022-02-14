@@ -11,7 +11,9 @@ const ShopByBrands = () => {
   const { brandName } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/shopByBrand/${brandName}`)
+    fetch(
+      `https://whispering-basin-27213.herokuapp.com/shopByBrand/${brandName}`
+    )
       .then((res) => res.json())
       .then((data) => setBrandToys(data));
   }, [brandName]);
